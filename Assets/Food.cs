@@ -17,7 +17,7 @@ public class Food : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "" + score;
+        scoreText.text = "Score: " + score;
     }
     private void RandomPose()
     {
