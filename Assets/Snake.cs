@@ -10,12 +10,14 @@ public class Snake : MonoBehaviour
 
     private List<Transform> _snakeSpawn;
     public Transform snakePrefab;
+    private bool collideWithWall = false;
+    private Vector2 currentdirection = Vector2.right;//snake start from right
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2 (moveSpeed, 0);
+        rb.velocity = new Vector2(moveSpeed, 0);
 
         _snakeSpawn = new List<Transform>();
         _snakeSpawn.Add(this.transform);
@@ -24,25 +26,30 @@ public class Snake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (!collideWithWall)
         {
-            rb.velocity = new Vector2 (0, moveSpeed);
+            handleInput();
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
+    }
+    void handleInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && currentdirection != Vector2.down)
         {
-            rb.velocity = new Vector2 (0, -moveSpeed);
+            currentdirection = Vector2.up;
         }
-
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.S) && currentdirection != Vector2.up)
         {
-            rb.velocity = new Vector2 (moveSpeed, 0);
+            currentdirection = Vector2.down;
         }
-        
-        if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && currentdirection != Vector2.right)
         {
-            rb.velocity = new Vector2 (-moveSpeed, 0);
+            currentdirection = Vector2.left;
         }
+        else if (Input.GetKeyDown(KeyCode.D) && currentdirection != Vector2.left)
+        {
+            currentdirection = Vector2.right;
+        }
+        rb.velocity = currentdirection * moveSpeed;
     }
     private void FixedUpdate()
     {
@@ -65,11 +72,17 @@ public class Snake : MonoBehaviour
             grow();
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "wall")
+        if (collision.gameObject.CompareTag("wall"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            stopMovement();
         }
+    }
+    private void stopMovement()
+    {
+        collideWithWall = true;
+        rb.velocity = Vector2.zero;
+        Debug.Log("game over.");
     }
 }
