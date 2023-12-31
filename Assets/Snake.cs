@@ -11,9 +11,12 @@ public class Snake : MonoBehaviour
     private List<Transform> _snakeSpawn;
     public Transform snakePrefab;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private bool collideWithWall=false;
     private Vector2 currentdirection=Vector2.right;//snake start from right
 =======
+=======
+>>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
     private bool collideWithWall = false;
     private Vector2 currentdirection = Vector2.right;//snake start from right
 
@@ -87,14 +90,20 @@ public class Snake : MonoBehaviour
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void stopMovement(){
         collideWithWall=true;
         rb.velocity=Vector2.zero;
 =======
+=======
+>>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
     private void stopMovement()
     {
         collideWithWall = true;
         rb.velocity = Vector2.zero;
+<<<<<<< HEAD
+>>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
+=======
 >>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
         Debug.Log("game over.");
         gameObject.SetActive(false);
