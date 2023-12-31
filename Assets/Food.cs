@@ -6,7 +6,7 @@ using TMPro;
 public class Food : MonoBehaviour
 {
     public BoxCollider2D foodSpawn;
-
+   
     public float score;
     public TextMeshProUGUI scoreText;
 
@@ -16,8 +16,8 @@ public class Food : MonoBehaviour
     }
 
     private void Update()
-    {
-        scoreText.text = "Score: " + score;
+    {  
+      scoreText.text = "Score: " + score;
     }
     private void RandomPose()
     {
@@ -36,4 +36,5 @@ public class Food : MonoBehaviour
             score++;
         }
     }
+    
 }
