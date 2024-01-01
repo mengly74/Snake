@@ -10,17 +10,12 @@ public class Snake : MonoBehaviour
     private Rigidbody2D rb;
     private List<Transform> _snakeSpawn;
     public Transform snakePrefab;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private bool collideWithWall=false;
     private Vector2 currentdirection=Vector2.right;//snake start from right
-=======
-=======
->>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
-    private bool collideWithWall = false;
-    private Vector2 currentdirection = Vector2.right;//snake start from right
 
->>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
+    
+
+
     // Start is called before the first frame update
     public Game_over_Screen gameOver;
     int Maxplatform=0;
@@ -89,22 +84,14 @@ public class Snake : MonoBehaviour
             stopMovement();
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     public void stopMovement(){
         collideWithWall=true;
         rb.velocity=Vector2.zero;
-=======
-=======
->>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
-    private void stopMovement()
-    {
+
+    
         collideWithWall = true;
         rb.velocity = Vector2.zero;
-<<<<<<< HEAD
->>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
-=======
->>>>>>> 6e1df57ba15539c2e700602cc9eb1e89f7afd121
         Debug.Log("game over.");
         gameObject.SetActive(false);
         if(gameOver!=null){
