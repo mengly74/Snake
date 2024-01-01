@@ -92,7 +92,7 @@ public class Snake : MonoBehaviour
     
         collideWithWall = true;
         rb.velocity = Vector2.zero;
-        Debug.Log("game over.");
+        //Debug.Log("game over.");
         gameObject.SetActive(false);
         if(gameOver!=null){
             gameOver.Setup(Maxplatform);

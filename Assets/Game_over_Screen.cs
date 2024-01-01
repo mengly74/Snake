@@ -4,10 +4,14 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Game_over_Screen : MonoBehaviour
 {
     // Start is called before the first frame update
+    //::::::::
+    public Food food;
+    //::::::
     public TextMeshProUGUI scoretext;
     void Start(){
         
@@ -16,7 +20,7 @@ public class Game_over_Screen : MonoBehaviour
     
     public void Setup(int score){
         gameObject.SetActive(true);
-        scoretext.text= score.ToString()+"points";
+        scoretext.text= food.score+ " scores";
     }
     public void restartButton(){
         SceneManager.LoadScene("Snake1");
