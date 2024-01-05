@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +7,6 @@ using UnityEngine.UI;
 public class Snake : MonoBehaviour
 {
     public float moveSpeed;
-    public Food food;
     private Rigidbody2D rb;
     private List<Transform> _snakeSpawn;
     public Transform snakePrefab;
@@ -20,6 +18,7 @@ public class Snake : MonoBehaviour
 
     // Start is called before the first frame update
     public Game_over_Screen gameOver;
+    int Maxplatform=0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -89,13 +88,17 @@ public class Snake : MonoBehaviour
     public void stopMovement(){
         collideWithWall=true;
         rb.velocity=Vector2.zero;
+
+    
+        collideWithWall = true;
+        rb.velocity = Vector2.zero;
         //Debug.Log("game over.");
+        gameObject.SetActive(false);
         if(gameOver!=null){
-            gameOver.Setup();
+            gameOver.Setup(Maxplatform);
             gameOver.gameObject.SetActive(true);
         }
         gameObject.SetActive(false);
-        food.gameObject.SetActive(false);
         
     }
 }

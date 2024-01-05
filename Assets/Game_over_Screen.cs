@@ -18,12 +18,12 @@ public class Game_over_Screen : MonoBehaviour
     
     }
     
-    public void Setup(){
+    public void Setup(int score){
         gameObject.SetActive(true);
         scoretext.text= food.score+ " scores";
     }
     public void restartButton(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Snake1");
     }
     public void main_menuButton(){
         SceneManager.LoadScene(0);
