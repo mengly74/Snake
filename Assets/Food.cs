@@ -35,6 +35,9 @@ public class Food : MonoBehaviour
             RandomPose();
             score++;
         }
+        else if (collision.gameObject.tag == "wall")
+        {
+            RandomPose();
+        }
     }
-    
 }
